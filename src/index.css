@@ -1,6 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -11,4 +16,172 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.App {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgb(220, 252, 255);
+}
+
+.btn {
+  cursor: pointer;
+}
+
+
+/*** KANBANBOARD ***/
+.KanbanBoard {
+  height: 100vh;
+  margin: 0 !important;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: space-around;
+  margin-top: 50px;
+  z-index: 1000;
+}
+
+
+/*** LIST ***/
+.List {
+  background-color: #e5f1f5dc;
+  margin: 30px;
+  padding: 20px;
+}
+
+.List__title {
+  text-align: center;
+  color: #333333;
+  background-color: white;
+}
+
+.List__newCard--btn {
+  text-transform: uppercase;
+  background-color: #d3d3d3;
+  border: none;
+  border-radius: 1px;
+  font-size: 9px;
+  line-height: 20px;
+  color: #4d4d4d;
+}
+
+.List__newCard--btn:hover {
+  background-color: #c5c5c5;
+  transition: 0.3s;
+}
+
+
+/*** CARD ***/
+.Card {
+  margin: 20px;
+  padding: 0 20px 30px 10px;
+  border: 1px solid rgba(150, 149, 149, 0.466);
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 3px 5px 16px #c4c4c4;;
+}
+
+.Card__title {
+  color: #4d4d4d;
+}
+
+.Card__description {
+  color: #414141;
+}
+
+.level {
+  float: left;
+  color: #8f8f8f;
+}
+
+.level--low {
+  border-left: 5px solid rgba(39, 139, 39, 0.932);
+}
+
+.level--medium {
+  border-left: 5px solid rgb(243, 225, 61);
+}
+
+.level--high {
+  border-left: 5px solid rgba(224, 21, 21, 0.966);
+}
+
+.title__btn {
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.Card__title--delete {
+  float: right;
+  color: #4d4d4d;
+  background-color: #e4e1e1;
+  border: 1px solid #d4d4d4;
+  border-radius: 9px;
+  margin-left: 200px;
+}
+
+
+/*** NEW CARD FORM ***/ 
+.NewCardForm {
+  padding: 20px;
+  font-size: 12px;
+}
+
+.NewCardForm__title {
+  display: block;
+  margin: 7px 0 15px 0;
+  width: 45%;
+  border: none;
+} 
+
+.NewCardForm__description {
+  margin: 7px 0 15px 0; 
+  display: block;
+  width: 100%;
+  border: none;
+}
+
+.NewCardForm__tasks {
+  margin: 7px 0 15px 0; 
+}
+
+.NewCardForm__btn {
+  margin: 10px 0 0 20px;
+  line-height: 18px;
+  border: none;
+  font-weight: 400;
+}
+
+.add {
+  float: right;
+  width: 13%;
+  font-size: 80%;
+  background-color: rgba(167, 211, 230, 0.906);
+  color: #3d4e68;
+}
+
+.add:hover {
+  background-color: #76bfdfd3;
+  transition: 0.2s;
+}
+
+.cancel {
+  float: right;
+  background-color: transparent;
+  color: #7a7a7a;
+  font-size: 10px;
+  text-decoration: underline;
+}
+
+/*** TASKLIST ***/
+.TaskList {
+  color: rgb(44, 44, 44);
+  font-size: 13px;
+}
+
+.TaskList__list {
+  list-style: none;
+  padding: 0;
 }
