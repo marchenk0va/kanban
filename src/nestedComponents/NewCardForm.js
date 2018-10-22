@@ -12,8 +12,10 @@ export default class NewCardForm extends Component {
             tasks: [],
             clicked: false,
             priority: 'low',
+            cancel: false,
         };
 
+        this.baseState = this.state; // for cancel btn
         this.updateInputValue = this.updateInputValue.bind(this);
     };
 
@@ -27,8 +29,13 @@ export default class NewCardForm extends Component {
         this.setState({descriptionValue: updatedDescr});
     };
 
-    clicked = (e) => {
-        this.setState({clicked: true})
+    deleteNewCard = () => {
+       let cards = this.props.cards;
+       console.log(cards);
+    }
+
+    clicked = () => {
+        this.setState({clicked: true});
     };
 
     handleSubmit = (e) => { e.preventDefault() };
@@ -37,15 +44,24 @@ export default class NewCardForm extends Component {
         this.setState({priority: e.target.value})
     };
 
+    resetForm = () => {
+        this.setState(this.baseState);
+    }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return !equals(nextProps, this.props);
+    // }
+
     render() {
         if(this.state.clicked) {
-            return <NewCard 
+            return <NewCard
                 cardTitle={this.state.inputValue} 
                 description={this.state.descriptionValue}
-                level={this.state.priority} />
+                level={this.state.priority}
+                deleteCard={this.deleteNewCard} />
         };
 
-        const {onCancel} = this.props;
+        const {onCancel} = this.state;
 
             return (
                 <div className="NewCardForm" onSubmit={this.handleSubmit}>
@@ -67,12 +83,6 @@ export default class NewCardForm extends Component {
                         className="NewCardForm__description"
                         onChange={e => this.updateDescription(e)}
                         description={this.state.descriptionValue} />
-                    
-                    <label htmlFor="task-list" className="NewCardForm__label">Here you can add list of tasks to your card :</label>
-                    <form className="NewCardForm__tasks">
-                        <button>+</button>
-                        <input type="sumbit" placeholder="Enter task"/>
-                    </form>
 
                     <form>
                         <legend>Select priority level</legend>
@@ -107,9 +117,9 @@ export default class NewCardForm extends Component {
                             className="NewCardForm__btn add btn"
                             onClick={this.clicked.bind(this)}>+</button>
                         <a 
-                            href=""
+                            href="?"
                             className="NewCardForm__btn cancel"
-                            onClick={onCancel}>cancel</a>
+                            onClick={this.resetForm.bind(this)}>cancel</a>
                     </div>
                 </div>
         );

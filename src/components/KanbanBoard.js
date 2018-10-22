@@ -15,9 +15,9 @@ export default class KanbanBoard extends Component {
     }
     
     // change change change
-    addNewCardHandler = () => {
+    addNewCardHandler = (cardID) => {
         let cards = this.props.cards;
-        cards.splice(cards, 0, cards[0]); 
+        cards.splice(cards, 0, cardID); 
         this.setState({cards: cards})
         console.log(cards);        
     };

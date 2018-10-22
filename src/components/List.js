@@ -32,7 +32,7 @@ export default class List extends Component {
     };
 
     clickedBtn = () => {
-        this.setState({addNewClicked: true});
+        this.setState({addNewClicked: !this.state.addNewClicked});
     };
 
     render() {
@@ -44,18 +44,19 @@ export default class List extends Component {
             ) 
         });
 
-        let newCardForm = this.state.addNewClicked ? <NewCardForm newCard={this.props.addNewCard}/> : null;
+        let newCardForm = this.state.addNewClicked ? 
+            <NewCardForm newCard={this.props.addNewCard} 
+                cards={this.props.cards}/> : null;
 
         return(
             <div className="List">
                 <h1 className="List__title">{this.props.title}</h1>
                 {cards}
                 {/* <NewCard /> */}
-                <button 
-                    type="button" 
-                    className="List__newCard--btn btn"
-                    onClick={this.clickedBtn}>Add new card</button>
                 {newCardForm}
+                {!this.state.addNewClicked  &&
+                    <button type="button" className="List__newCard--btn btn"
+                        onClick={this.clickedBtn}>Add new card</button>}
             </div>
         );
     }

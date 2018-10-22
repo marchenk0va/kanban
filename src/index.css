@@ -49,6 +49,7 @@ code {
   background-color: #e5f1f5dc;
   margin: 30px;
   padding: 20px;
+  width: 70%;
 }
 
 .List__title {
@@ -89,6 +90,7 @@ code {
 
 .Card__description {
   color: #414141;
+  margin-bottom: 10px;
 }
 
 .level {
@@ -106,6 +108,11 @@ code {
 
 .level--high {
   border-left: 5px solid rgba(224, 21, 21, 0.966);
+}
+
+.checkedCard {
+  display: inline-block;
+  float: right;
 }
 
 .title__btn {
@@ -173,15 +180,4 @@ code {
   color: #7a7a7a;
   font-size: 10px;
   text-decoration: underline;
-}
-
-/*** TASKLIST ***/
-.TaskList {
-  color: rgb(44, 44, 44);
-  font-size: 13px;
-}
-
-.TaskList__list {
-  list-style: none;
-  padding: 0;
 }

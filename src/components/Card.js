@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import TaskList from './TaskList';
-
 export default class Card extends Component {
     constructor() {
         super();
@@ -32,7 +30,8 @@ export default class Card extends Component {
                     </h3>
                 </div>
                 <div className="Card__description">{this.props.description}</div>
-                <TaskList tasks={this.props.tasks}/>
+                {/* <TaskList tasks={this.props.tasks}/> */}
+                <input type="checkbox" className="checkedCard"/>
                 <span className="level">{this.props.level}</span>
             </div>
         )

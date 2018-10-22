@@ -25,6 +25,7 @@ export default class NewCard extends Component {
                     </h3>
                 </div>
                 <div className="Card__description">{this.props.description}</div>
+                <input type="checkbox" className="checkedCard"/>
                 <span className="level">{this.props.level}</span>
             </div>
         )

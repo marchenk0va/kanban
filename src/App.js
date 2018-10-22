@@ -13,19 +13,7 @@ class App extends Component {
         cardTitle: 'Read',
         description: 'Read something',
         status: 'to-do',
-        level: 'low',
-        tasks: [
-          {
-            id: 1,
-            taskTitle: 'First book',
-            done: true
-          },
-          {
-            id: 2,
-            taskTitle: 'Second book',
-            done: false
-          }
-        ]
+        level: 'low'
       },
 
       {
@@ -33,8 +21,7 @@ class App extends Component {
         cardTitle: 'Not die',
         description: 'Not die till the end of the year',
         status: 'in-progress',
-        level: 'medium',
-        tasks: [{}]
+        level: 'medium'
       },
 
       {
@@ -42,14 +29,7 @@ class App extends Component {
         cardTitle: 'Cook',
         description: 'Make dinner',
         status: 'completed',
-        level: 'high',
-        tasks: [
-          {
-            id: 1,
-            taskTitle: 'Buy chilli for sauce',
-            done: true
-          }
-        ]
+        level: 'high'
       }
       ]
 
