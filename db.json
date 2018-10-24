@@ -1,0 +1,28 @@
+{
+  "cards": [
+    {
+      "status": "to-do",
+      "cardTitle": "Read",
+      "description": "Read something",
+      "level": "low",
+      "order_position": 0,
+      "id": 1
+    },
+    {
+      "status": "in-progress",
+      "cardTitle": "Not die",
+      "description": "Not die till the end of the year",
+      "level": "medium",
+      "order_position": 1,
+      "id": 2
+    },
+    {
+      "status": "completed",
+      "cardTitle": "Cook",
+      "description": "Make dinner",
+      "level": "high",
+      "order_position": 2,
+      "id": 3
+    }
+  ]
+}

@@ -2,37 +2,10 @@ import React, { Component } from 'react';
 
 import KanbanBoard from './components/KanbanBoard';
 import Particles from 'react-particles-js';
-import 'babel-polyfill';
 
 
 class App extends Component {
   render() {
-    let cards = [ 
-      {
-        id: 1,
-        cardTitle: 'Read',
-        description: 'Read something',
-        status: 'to-do',
-        level: 'low'
-      },
-
-      {
-        id: 2,
-        cardTitle: 'Not die',
-        description: 'Not die till the end of the year',
-        status: 'in-progress',
-        level: 'medium'
-      },
-
-      {
-        id: 3,
-        cardTitle: 'Cook',
-        description: 'Make dinner',
-        status: 'completed',
-        level: 'high'
-      }
-      ]
-
     const params = {
       particles: {
         line_linked: {
@@ -46,7 +19,7 @@ class App extends Component {
 
     return (
       <div className="KanbanBoard">
-        <KanbanBoard cards={cards} />
+        <KanbanBoard />
         <Particles className="App" params={params} />
       </div>
     );

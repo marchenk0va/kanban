@@ -4,7 +4,20 @@ import Card from './Card';
 import NewCardForm from '../nestedComponents/NewCardForm';
 import NewCard from '../nestedComponents/NewCard';
 
-export default class List extends Component {
+import { DropTarget } from 'react-dnd';
+
+const listTarget = {
+    drop(props, monitor) {
+        const draggedID = monitor.getItem().id;
+        props.cardCallback.updateStatus(draggedID, props.id);
+    }
+};
+
+const collect = (connect, monitor) => {
+    return { connectDropTarget: connect.dropTarget() };
+};
+
+class List extends Component {
     constructor() {
         super();
 
@@ -36,11 +49,14 @@ export default class List extends Component {
     };
 
     render() {
+        const { connectDropTarget } = this.props;
+        
         let cards = this.props.cards.map((card) => {
             return ( 
                 <Card  {...card} 
                     key={card.id} 
-                    deleteCard={() => this.deleteCardHandler(card.id)} />
+                    deleteCard={() => this.deleteCardHandler(card.id)}
+                    cardCallback={this.props.cardCallback} />
             ) 
         });
 
@@ -48,7 +64,7 @@ export default class List extends Component {
             <NewCardForm newCard={this.props.addNewCard} 
                 cards={this.props.cards}/> : null;
 
-        return(
+        return connectDropTarget(
             <div className="List">
                 <h1 className="List__title">{this.props.title}</h1>
                 {cards}
@@ -59,5 +75,7 @@ export default class List extends Component {
                         onClick={this.clickedBtn}>Add new card</button>}
             </div>
         );
-    }
-}
+    };
+};
+
+export default DropTarget('CARD', listTarget, collect)(List);
