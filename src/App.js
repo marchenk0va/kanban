@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import KanbanBoard from './components/KanbanBoard';
+import KanbanApp from './components/KanbanApp';
 import Particles from 'react-particles-js';
 
 
@@ -19,7 +19,7 @@ class App extends Component {
 
     return (
       <div className="KanbanBoard">
-        <KanbanBoard />
+        <KanbanApp />
         <Particles className="App" params={params} />
       </div>
     );
