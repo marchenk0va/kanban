@@ -5,23 +5,23 @@
       "cardTitle": "Read",
       "description": "Read something",
       "level": "low",
-      "column_position": 1,
+      "row_position": 2,
       "id": 1
     },
     {
-      "status": "in-progress",
+      "status": "to-do",
       "cardTitle": "Not die",
       "description": "Not die till the end of the year",
       "level": "medium",
-      "column_position": 1,
+      "row_position": 0,
       "id": 2
     },
     {
-      "status": "to-do",
+      "status": "completed",
       "cardTitle": "Cook",
       "description": "Make dinner",
       "level": "high",
-      "column_position": 0,
+      "row_position": 1,
       "id": 3
     }
   ]

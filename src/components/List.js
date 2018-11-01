@@ -13,9 +13,7 @@ const listTarget = {
     }
 };
 
-const collect = (connect, monitor) => {
-    return { connectDropTarget: connect.dropTarget() };
-};
+const collect = (connect, monitor) => { return { connectDropTarget: connect.dropTarget() }};
 
 class List extends Component {
     constructor() {
@@ -44,9 +42,7 @@ class List extends Component {
         this.setState({cards: cards, addNewClicked: false});
     };
 
-    clickedBtn = () => {
-        this.setState({addNewClicked: !this.state.addNewClicked});
-    };
+    clickedBtn = () => this.setState({addNewClicked: !this.state.addNewClicked});
 
     render() {
         const { connectDropTarget } = this.props;
@@ -55,14 +51,14 @@ class List extends Component {
             return ( 
                 <Card  {...card} 
                     key={card.id} 
-                    deleteCard={() => this.deleteCardHandler(card.id)}
+                    deleteCard={(cardID) => this.deleteCardHandler()}
                     cardCallback={this.props.cardCallback} />
             ) 
         });
 
         let newCardForm = this.state.addNewClicked ? 
-            <NewCardForm newCard={this.props.addNewCard} 
-                cards={this.props.cards}/> : null;
+            <NewCardForm  cards={this.props.cards} 
+                cardCallback={this.props.cardCallback} /> : null;
 
         return connectDropTarget(
             <div className="List">

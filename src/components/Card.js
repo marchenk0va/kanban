@@ -32,24 +32,11 @@ const collectDrop = (connect, monitor) => {
 };
 
 class Card extends Component {
-    constructor() {
-        super();
-
-        this.state = {
-            taskListEmpty: false,
-        }
-    };
-
     render() {
         const { connectDragSource, connectDropTarget } = this.props;
 
-        const getLevelClass = (level) => {
-            if(level === 'low') {
-                return 'level--low'
-            } else if(level === 'medium') {
-                return 'level--medium'
-            } else return 'level--high'
-        }
+        const getLevelClass = (level) => 'level--' + level;
+
         const levelClass = getLevelClass(this.props.level);
 
         return connectDropTarget(connectDragSource(
@@ -59,13 +46,11 @@ class Card extends Component {
                         {this.props.cardTitle}
                         <button 
                             className="Card__title--delete btn"
-                            onClick={this.props.deleteCard}> delete
+                            onClick={() => this.props.deleteCard(this.props.key)}> delete
                         </button>
                     </h3>
                 </div>
                 <div className="Card__description">{this.props.description}</div>
-                {/* <TaskList tasks={this.props.tasks}/> */}
-                {/* <input type="checkbox" className="checkedCard"/> */}
                 <span className="level">{this.props.level}</span>
             </div>
         ))

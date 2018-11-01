@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
 
+import { Router, Route, IndexRoute, Link } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
+
 import KanbanApp from './components/KanbanApp';
-import Particles from 'react-particles-js';
+import KanbanBoard from './components/KanbanBoard';
+import NewCard from './nestedComponents/NewCard';
 
-
-class App extends Component {
+export default class App extends Component {
   render() {
-    const params = {
-      particles: {
-        line_linked: {
-          color: "#000000",
-        },
-        number: {
-          value: 200,
-        }
-      }
-    }
-
-    return (
-      <div className="KanbanBoard">
-        <KanbanApp />
-        <Particles className="App" params={params} />
-      </div>
+    return(
+      <Router history={createBrowserHistory()}>
+        <Route component={KanbanApp}>
+          <Route path="/" component={KanbanBoard}>
+            <Route path="new" component={NewCard} />
+          </Route>
+        </Route>
+      </Router>
     );
-  }
-}
-
-export default App;
+  };
+};

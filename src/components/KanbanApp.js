@@ -22,11 +22,10 @@ class KanbanApp extends Component {
             cards: [],
         };
 
-        //this.deleteCard = this.deleteCard.bind(this);
-        //this.addCard = this.addCard.bind(this);
         this.updateCardStatus = throttle(this.updateCardStatus.bind(this), 100);
         this.updateCardPosition = throttle(this.updateCardPosition.bind(this), 500);
         this.changeCardDrag = this.changeCardDrag.bind(this);
+        this.addNewCard = this.addNewCard.bind(this);
     }
 
     componentDidMount() {
@@ -84,7 +83,7 @@ class KanbanApp extends Component {
                 cardTitle: card.cardTitle,
                 description: card.description,
                 level: card.level, 
-                column_position: cardIndex
+                row_position: cardIndex
             })
         })
         .then((response) => {
@@ -111,7 +110,7 @@ class KanbanApp extends Component {
                     updatePosition: this.updateCardPosition,
                     changeCardDrag: this.changeCardDrag }} />
         )
-    }
-}
+    };
+};
 
-export default DragDropContext(HTML5Backend)(KanbanApp)
+export default DragDropContext(HTML5Backend)(KanbanApp);
